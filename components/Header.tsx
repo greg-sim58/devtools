@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Wrench } from "lucide-react";
+import ver from "@/version.json";
 
 export function Header() {
   return (
@@ -14,7 +15,7 @@ export function Header() {
           </span>
         </Link>
         <span className="text-xs text-slate-400">
-          Fast, private, client-side
+          v{ver.version}
         </span>
       </div>
     </header>

@@ -63,7 +63,7 @@ export async function POST(req: NextRequest) {
   const dialectHint = DIALECT_HINTS[dialect] ?? DIALECT_HINTS.sqlserver;
 
   const system = `You are a precise C#/SQL translator. Output ONLY the translated code, no prose.
-Target dialect: ${dialectHint}
+${direction === "linq-to-sql" ? `Target dialect: ${dialectHint}` : "Target language: C# LINQ (method chain syntax)"}
 If input uses Include(), navigation properties, or complex C# expressions, add a comment on the FIRST line: // NOTE: Manual JOIN/Navigation property required.
 If input is neither valid ${inLang} nor close to it, respond with: // Invalid input.`;
 
@@ -99,7 +99,9 @@ If input is neither valid ${inLang} nor close to it, respond with: // Invalid in
     }
 
     const data = await response.json();
-    const translated = data.choices?.[0]?.message?.content ?? "";
+    const translated = (data.choices?.[0]?.message?.content ?? "")
+      .replace(/^```\w*\n?|\n?```$/g, "")
+      .trim();
 
     if (!translated) {
       return NextResponse.json(

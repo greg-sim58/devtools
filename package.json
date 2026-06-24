@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node -e \"require('fs').rmSync('.next',{recursive:true,force:true})\"",
     "dev": "next dev",
+    "prebuild": "node -e \"var v=require('./version.json'),p=v.version.split('.');p[2]=Number(p[2])+1;v.version=p.join('.');require('fs').writeFileSync('./version.json',JSON.stringify(v))\"",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
