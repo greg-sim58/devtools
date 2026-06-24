@@ -79,7 +79,7 @@ If input is neither valid ${inLang} nor close to it, respond with: // Invalid in
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          model: "google/gemini-2.0-flash-lite",
+          model: "google/gemini-2.5-flash-lite",
           messages: [
             { role: "system", content: system },
             { role: "user", content: user },
@@ -91,10 +91,10 @@ If input is neither valid ${inLang} nor close to it, respond with: // Invalid in
     );
 
     if (!response.ok) {
-      const err = await response.text();
+      const errText = await response.text();
       return NextResponse.json(
-        { error: `Model API error: ${response.status}` },
-        { status: response.status },
+        { error: `Model API error: ${response.status}. ${errText.slice(0, 200)}` },
+        { status: 502 },
       );
     }
 
