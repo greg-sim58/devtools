@@ -12,6 +12,7 @@ import {
   FileCode2,
   Table,
   FileJson,
+  Cpu,
 } from "lucide-react";
 
 import { JsonFormatter } from "./tools/JsonFormatter";
@@ -26,11 +27,13 @@ import { SqlFormatter } from "./tools/SqlFormatter";
 import { XmlFormatter } from "./tools/XmlFormatter";
 import { CsvJson } from "./tools/CsvJson";
 import { YamlFormatter } from "./tools/YamlFormatter";
+import { LinQSql } from "./tools/LinqSql";
 
 export type ToolCategory =
   | "Formatters"
   | "Encoders"
-  | "Generators";
+  | "Generators"
+  | "Converters";
 
 export type Tool = {
   slug: string;
@@ -46,6 +49,7 @@ export const CATEGORY_ORDER: ToolCategory[] = [
   "Formatters",
   "Encoders",
   "Generators",
+  "Converters",
 ];
 
 export const tools: Tool[] = [
@@ -157,6 +161,16 @@ export const tools: Tool[] = [
     component: UnixTimestamp,
     keywords: ["unix", "timestamp", "epoch", "date", "time"],
   },
+  {
+    slug: "linq-sql",
+    name: "LINQ ↔ SQL Converter",
+    description:
+      "Translate C# LINQ (Entity Framework) queries to SQL and vice versa via Gemini 2.0 Flash Lite.",
+    category: "Converters",
+    icon: Cpu,
+    component: LinQSql,
+    keywords: ["linq", "ef", "entity", "framework", "sql", "csharp"],
+  },
 ];
 
 export function getTool(slug: string): Tool | undefined {
@@ -168,6 +182,7 @@ export function toolsByCategory(): Record<ToolCategory, Tool[]> {
     Formatters: [],
     Encoders: [],
     Generators: [],
+    Converters: [],
   };
   for (const t of tools) grouped[t.category].push(t);
   return grouped;

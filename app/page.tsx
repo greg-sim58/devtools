@@ -30,6 +30,7 @@ export default function Home() {
       Formatters: [] as Tool[],
       Encoders: [] as Tool[],
       Generators: [] as Tool[],
+    Converters: [] as Tool[],
     };
     for (const t of matches) next[t.category].push(t);
     return next;
