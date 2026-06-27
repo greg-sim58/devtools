@@ -127,7 +127,7 @@ export function JwtDecoder() {
             <Textarea
               readOnly
               value={result.header.error ?? result.header.json}
-              className={`min-h-[160px] ${
+              className={`min-h-[240px] ${
                 result.header.error
                   ? "border-red-300 bg-red-50/40 text-red-700"
                   : ""
@@ -142,7 +142,7 @@ export function JwtDecoder() {
             <Textarea
               readOnly
               value={result.payload.error ?? result.payload.json}
-              className={`min-h-[160px] ${
+              className={`min-h-[240px] ${
                 result.payload.error
                   ? "border-red-300 bg-red-50/40 text-red-700"
                   : ""

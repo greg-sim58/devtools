@@ -93,7 +93,7 @@ export function UrlEncoder() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="https://example.com/search?q=hello world&lang=en"
-            className="min-h-[320px]"
+            className="min-h-[400px]"
           />
         </div>
         <div>
@@ -105,7 +105,7 @@ export function UrlEncoder() {
             readOnly
             value={error ? "" : output}
             placeholder={error ? "" : "Result will appear here."}
-            className={`min-h-[320px] ${
+            className={`min-h-[400px] ${
               error ? "border-red-300 bg-red-50/40 text-red-700" : ""
             }`}
           />

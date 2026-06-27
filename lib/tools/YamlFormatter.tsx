@@ -58,7 +58,7 @@ export function YamlFormatter() {
           <Textarea
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            className="min-h-[320px]"
+            className="min-h-[400px]"
           />
         </div>
         <div>
@@ -69,7 +69,7 @@ export function YamlFormatter() {
           <Textarea
             readOnly
             value={error ? "" : output}
-            className={`min-h-[320px] ${
+            className={`min-h-[400px] ${
               error ? "border-red-300 bg-red-50/40 text-red-700" : ""
             }`}
           />

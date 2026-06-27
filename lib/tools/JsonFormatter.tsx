@@ -79,7 +79,7 @@ export function JsonFormatter() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder='{"hello":"world","items":[1,2,3]}'
-            className="min-h-[320px]"
+            className="min-h-[400px]"
           />
         </div>
         <div>
@@ -93,7 +93,7 @@ export function JsonFormatter() {
             placeholder={
               error ? "" : "Formatted JSON will appear here."
             }
-            className={`min-h-[320px] ${
+            className={`min-h-[400px] ${
               error
                 ? "border-red-300 bg-red-50/40 text-red-700"
                 : ""

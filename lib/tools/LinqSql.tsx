@@ -140,7 +140,7 @@ export function LinQSql() {
           <Textarea
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            className="min-h-[320px]"
+            className="min-h-[400px]"
             placeholder={
               direction === "linq-to-sql"
                 ? "dbContext.Users.Where(u => u.Age > 25)"
@@ -159,7 +159,7 @@ export function LinQSql() {
             readOnly
             value={output}
             placeholder="Translated output will appear here."
-            className="min-h-[320px]"
+            className="min-h-[400px]"
           />
           {error && (
             <p className="mt-2 rounded-md bg-red-50 px-3 py-2 text-xs text-red-700">

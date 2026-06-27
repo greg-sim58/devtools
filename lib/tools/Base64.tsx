@@ -66,7 +66,7 @@ export function Base64() {
                 ? "Type text to encode…"
                 : "Paste Base64 to decode…"
             }
-            className="min-h-[320px]"
+            className="min-h-[400px]"
           />
         </div>
         <div>
@@ -82,7 +82,7 @@ export function Base64() {
             placeholder={
               error ? "" : "Result will appear here."
             }
-            className={`min-h-[320px] ${
+            className={`min-h-[400px] ${
               error ? "border-red-300 bg-red-50/40 text-red-700" : ""
             }`}
           />
